@@ -5,7 +5,7 @@ import anvil.server
 #
 # To allow anvil.server.call() to call functions here, we mark
 @anvil.server.callable
-  def get_temperature_data():
+def get_temperature_data():
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT TIMESTAMP,sensorValue1 FROM tooltronic.measurement ORDER BY timestamp DESC LIMIT 100")

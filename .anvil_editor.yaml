@@ -9,5 +9,6 @@ unique_ids:
   modules: {}
   scripts: {}
   server_modules:
-    getmeasurement: '1730316464138443861248155.9976'
+    ServerPackage1: '1730317473628222343416235.7809'
+    get_temperature_data: '1730316464138443861248155.9976'
     mysql: '1730314852416654494332246.3766'

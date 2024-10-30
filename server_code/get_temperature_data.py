@@ -4,19 +4,11 @@ import anvil.server
 # rather than in the user's browser.
 #
 # To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
-#
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
-#
 @anvil.server.callable
-def get_temperature_data():
+  def get_temperature_data():
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT timestamp, measurement FROM measurement ORDER BY timestamp DESC LIMIT 100")
+    cursor.execute("SELECT TIMESTAMP,sensorValue1 FROM tooltronic.measurement ORDER BY timestamp DESC LIMIT 100")
     data = cursor.fetchall()
     cursor.close()
     conn.close()

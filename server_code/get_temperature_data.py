@@ -9,7 +9,7 @@ from .get_mysql import get_db_connection
 def get_temperature_data():
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT TIMESTAMP,sensorValue1 FROM tooltronic.measurement ORDER BY timestamp asc LIMIT 100")
+    cursor.execute("SELECT DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S'),sensorValue1 FROM tooltronic.measurement ORDER BY timestamp desc LIMIT 100")
     data = cursor.fetchall()
     cursor.close()
     conn.close()

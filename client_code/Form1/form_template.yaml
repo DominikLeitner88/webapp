@@ -1,7 +1,7 @@
 components:
 - components:
   - layout_properties: {full_width_row: true, grid_position: 'GXCIHP,ZYIMAS'}
-    name: plot_1
+    name: plot_temperature
     properties: {}
     type: Plot
   - event_bindings: {tick: timer_1_tick}

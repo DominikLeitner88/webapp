@@ -9,9 +9,10 @@ components:
   properties: {}
   type: FlowPanel
 - components:
-  - layout_properties: {grid_position: 'QVWEHQ,YBWSHD'}
-    name: button_1
-    properties: {text: button_1}
+  - event_bindings: {click: Live_click}
+    layout_properties: {full_width_row: true, grid_position: 'QVWEHQ,YBWSHD', row_background: ''}
+    name: Live
+    properties: {bold: false, role: null, spacing_above: small, spacing_below: small, text: Live}
     type: Button
   layout_properties: {slot: left-nav}
   name: column_panel_1

@@ -20,7 +20,8 @@ components:
     name: Live
     properties: {bold: false, role: null, spacing_above: small, spacing_below: small, text: Live}
     type: Button
-  - layout_properties: {full_width_row: false, grid_position: 'CUSMGR,XWGHTO'}
+  - event_bindings: {click: button_1_click}
+    layout_properties: {full_width_row: false, grid_position: 'CUSMGR,XWGHTO'}
     name: button_1
     properties: {text: button_1}
     type: Button

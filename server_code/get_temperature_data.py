@@ -1,6 +1,9 @@
 import anvil.server
 from anvil.server import callable
 from .get_mysql import get_db_connection
+#import anvil.logger
+#import logging
+#anvil.logger.set_default_logger()
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
@@ -21,4 +24,4 @@ def get_temperature_data():
     return {'timestamps': timestamps, 'temperatures': temperatures}
   except Exception as e:
         print(f"Fehler in get_temperature_data: {e}")
-        return {'timestamps': [], 'temperatures': []}
+        raise

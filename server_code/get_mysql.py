@@ -2,6 +2,11 @@ import anvil.server
 import mysql.connector
 from anvil.server import callable
 
+import anvil.server
+#import anvil.logger
+#import logging
+#anvil.logger.set_default_logger()
+
 def get_db_connection():
   try:
     connection = mysql.connector.connect(
@@ -12,6 +17,7 @@ def get_db_connection():
     )
     
     return connection
-  except mysql.connector.Error as err:
-        print(f"Datenbankverbindungsfehler: {err}")
-        raise
+  except mysql.connector.Error as e:
+        print(f"Datenbankverbindungsfehler: {e}", exc_info=True)
+        #raise
+      

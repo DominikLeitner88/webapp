@@ -4,6 +4,7 @@ import anvil.server
 import plotly.graph_objects as go
 from datetime import datetime
 
+
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -49,10 +50,13 @@ class Form1(Form1Template):
       except Exception as e:
           print(f"Fehler beim Aktualisieren des Diagramms: {e}")
           alert(f"Fehler beim Aktualisieren des Diagramms: {e}")
-
+      
         
 
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
     self.update_plot()
     pass
+
+result = anvil.server.call('test_db_connection')
+alert(result)

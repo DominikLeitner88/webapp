@@ -13,4 +13,11 @@ class Form1(Form1Template):
 
   def Live_click(self, **event_args):
     """This method is called when the button is clicked"""
+    open_form('site')
     pass
+    
+  def button_1_click(self, **event_args):
+    self.button_1.bold = True
+        # Navigieren Sie zur ZielForm
+    open_form('site')
+    

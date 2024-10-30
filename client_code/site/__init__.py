@@ -1,10 +1,10 @@
-from ._anvil_designer import Form1_copyTemplate
+from ._anvil_designer import siteTemplate
 from anvil import *
 import anvil.server
 import plotly.graph_objects as go
 
 
-class Form1_copy(Form1_copyTemplate):
+class site(siteTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

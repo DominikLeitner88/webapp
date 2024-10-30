@@ -11,8 +11,8 @@ def get_db_connection():
   try:
     connection = mysql.connector.connect(
         host='192.168.1.12',       # z.B. 'localhost' oder die IP-Adresse Ihres Datenbankservers
-        user='root',   # Ihr Datenbankbenutzername
-        password='Sensid.DB',# Ihr Datenbankpasswort
+        user='tooltronic',   # Ihr Datenbankbenutzername
+        password='tooltronic',# Ihr Datenbankpasswort
         database='tooltronic'    # Der Name Ihrer Datenbank
     )
     

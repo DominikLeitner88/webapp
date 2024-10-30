@@ -25,8 +25,8 @@ class Form1(Form1Template):
   def __init__(self, **properties):
         self.init_components(**properties)
         self.update_plot()
-        result = anvil.server.call('test_db_connection')
-        alert(result)
+        #result = anvil.server.call('test_db_connection')
+        #alert(result)
 
   def update_plot(self):
         # Daten vom Server abrufen

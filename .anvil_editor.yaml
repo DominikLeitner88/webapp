@@ -1,6 +1,5 @@
 unique_ids:
   assets:
-    button.css: '1730313295892737068971568.6017'
     standard-page.html: VUQ6VRJBY72K4WVZXG7XJVUE23GJVL4H
     theme.css: Z3LXUJAL723HX4OS3XJVHFBLERYSC3WP
   forms:
@@ -9,6 +8,5 @@ unique_ids:
   modules: {}
   scripts: {}
   server_modules:
-    ServerPackage1: '1730317473628222343416235.7809'
     get_mysql: '1730314852416654494332246.3766'
     get_temperature_data: '1730316464138443861248155.9976'

@@ -37,3 +37,8 @@ class Form1(Form1Template):
 
         # Diagramm in der Plot-Komponente anzeigen
         self.plot_1.data = fig
+
+  def timer_1_tick(self, **event_args):
+    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+    self.update_plot()
+    pass

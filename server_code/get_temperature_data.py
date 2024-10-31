@@ -9,7 +9,7 @@ from .get_mysql import get_db_connection
 #
 # To allow anvil.server.call() to call functions here, we mark
 @anvil.server.callable
-def get_new_temperature_data(last_timestamp=None):
+def get_temperature_data(last_timestamp=None):
   try:
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -26,5 +26,5 @@ def get_new_temperature_data(last_timestamp=None):
 
     return {'timestamps': timestamps, 'temperatures': temperatures}
   except Exception as e:
-        print(f"Fehler in get_new_temperature_data: {e}")
+        print(f"Fehler in get_temperature_data: {e}")
         raise

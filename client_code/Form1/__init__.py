@@ -32,7 +32,7 @@ class Form1(Form1Template):
 
   def update_plot(self):
     try:
-        data = anvil.server.call('get_new_temperature_data', self.last_timestamp)
+        data = anvil.server.call('get_temperature_data', self.last_timestamp)
         new_timestamps_str = data['timestamps']
         new_temperatures = data['temperatures']
 

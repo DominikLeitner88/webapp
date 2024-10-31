@@ -14,22 +14,9 @@ def get_new_temperature_data(last_timestamp=None):
     conn = get_db_connection()
     cursor = conn.cursor()
     if last_timestamp: 
-        cursor.execute("""
-                SELECT
-                    DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S') AS timestamp_formatted,
-                    sensorValue1
-                FROM tooltronic.measurement
-                WHERE timestamp > %s
-                ORDER BY timestamp ASC
-        """, (last_timestamp,))
+        cursor.execute("SELECT DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S') AS timestamp_formatted,sensorValue1 FROM tooltronic.measurement WHERE timestamp > %s ORDER BY timestamp ASC;", (last_timestamp,))
     else:
-        cursor.execute("""
-                SELECT
-                    DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S') AS timestamp_formatted,
-                    sensorValue1
-                FROM tooltronic.measurement
-                ORDER BY timestamp ASC
-        """)
+        cursor.execute("SELECT DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S') AS timestamp_formatted,sensorValue1 FROM tooltronic.measurement ORDER BY timestamp ASC")
     data = cursor.fetchall()
     cursor.close()
     conn.close()

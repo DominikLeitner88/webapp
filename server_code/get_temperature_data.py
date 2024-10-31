@@ -26,5 +26,5 @@ def get_new_temperature_data(last_timestamp=None):
 
     return {'timestamps': timestamps, 'temperatures': temperatures}
   except Exception as e:
-        print(f"Fehler in get_temperature_data: {e}")
+        print(f"Fehler in get_new_temperature_data: {e}")
         raise

@@ -9,11 +9,27 @@ from .get_mysql import get_db_connection
 #
 # To allow anvil.server.call() to call functions here, we mark
 @anvil.server.callable
-def get_temperature_data():
+def get_new_temperature_data(last_timestamp=None):
   try:
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S'),sensorValue1 FROM tooltronic.measurement ORDER BY timestamp desc LIMIT 100")
+    if last_timestamp: 
+        cursor.execute("""
+                SELECT
+                    DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S') AS timestamp_formatted,
+                    sensorValue1
+                FROM tooltronic.measurement
+                WHERE timestamp > %s
+                ORDER BY timestamp ASC;
+            """, (last_timestamp,))
+    else:
+        cursor.execute("""
+                SELECT
+                    DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S') AS timestamp_formatted,
+                    sensorValue1
+                FROM tooltronic.measurement
+                ORDER BY timestamp ASC;
+            """)
     data = cursor.fetchall()
     cursor.close()
     conn.close()

@@ -54,8 +54,8 @@ class Form1(Form1Template):
         alert("Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.")
 
   def update_plot_data(self):
-    # Diagramm aktualisieren, ohne es neu zu erstellen
-    if not hasattr(self, 'fig'):
+    try:# Diagramm aktualisieren, ohne es neu zu erstellen
+      if not hasattr(self, 'fig'):
         # Wenn das Diagramm noch nicht existiert, erstellen
         self.fig = go.Figure()
         self.fig.add_trace(go.Scatter(x=self.timestamps, y=self.temperatures, mode='lines+markers'))
@@ -66,17 +66,18 @@ class Form1(Form1Template):
             xaxis_tickformat='%Y-%m-%d\n%H:%M:%S'
         )
         self.plot_temperature.figure = self.fig
-    else:
+      else:
         # Daten im bestehenden Diagramm aktualisieren
         self.fig.data[0].x = self.timestamps
         self.fig.data[0].y = self.temperatures
         self.plot_temperature.figure = self.fig
-      
+    except Exception as e:
+        alert("Ein Fehler in update_plot_data ist aufgetreten. Bitte versuchen Sie es später erneut.") 
         
 
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    self.update_plot()
+    self.update_plot_data()()
     pass
 
 

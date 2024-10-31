@@ -20,7 +20,7 @@ def get_new_temperature_data(last_timestamp=None):
                     sensorValue1
                 FROM tooltronic.measurement
                 WHERE timestamp > %s
-                ORDER BY timestamp ASC;
+                ORDER BY timestamp ASC
         """, (last_timestamp,))
     else:
         cursor.execute("""
@@ -28,7 +28,7 @@ def get_new_temperature_data(last_timestamp=None):
                     DATE_FORMAT(TIMESTAMP, '%Y-%m-%d %H:%i:%S') AS timestamp_formatted,
                     sensorValue1
                 FROM tooltronic.measurement
-                ORDER BY timestamp ASC;
+                ORDER BY timestamp ASC
         """)
     data = cursor.fetchall()
     cursor.close()

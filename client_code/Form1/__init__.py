@@ -3,7 +3,6 @@ from anvil import *
 import anvil.server
 import plotly.graph_objects as go
 from datetime import datetime
-from .get_temperatur_data import get_new_temperature_data
 
 class Form1(Form1Template):
   def __init__(self, **properties):
